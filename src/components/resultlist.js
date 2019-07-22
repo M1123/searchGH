@@ -8,9 +8,9 @@ class rl extends React.Component{
         return(
             <div>
                 <h2>Найдено репозиториев: {this.props.total_count}</h2>
-                <div>
+                <div className="wrapper">
                     {this.props.items.map((card, key) =>
-                    <Card card={card} key={this.props.id}  />)} 
+                    <Card card={card} key={key}  />)} 
                 </div>         
                 
             </div>

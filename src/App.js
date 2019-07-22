@@ -13,21 +13,17 @@ class App extends React.Component{
 
   searchingGH = async (e) => {
     const stext = e.target.value;
-    const apiurl = await fetch(`https://api.github.com/search/repositories?q=${stext}`);
-    const data = await apiurl.json();
-    var items=[];
-    items = data.items;
-    console.log(items);
-
-    this.setState({
-      // name: data.name,
-      // htmlurl: data.htmlurl,
-      // stargazers_count: data.stargazers_count,
-      // watchers_count: data.watchers_count,
-      // error: "",
-      items: items,
-      total_count: data.total_count
-    });
+    const apiurl= await fetch(`https://api.github.com/search/repositories?q=${stext}`);
+    let data;
+    if (stext){
+      data = await apiurl.json();
+      var items=[];
+      items = data.items;
+      this.setState({
+        items: items,
+        total_count: data.total_count
+      });
+    } 
   }
   
 
@@ -44,9 +40,9 @@ class App extends React.Component{
           items={this.state.items}
           id={this.state.items.id}
           name={this.state.items.name}
-          htmlurl={this.state.items.htmlurl}
-          stargazers_count={this.state.items.stargazers_count}
-          watchers_count={this.state.items.watchers_count}
+          // htmlurl={this.state.items.htmlurl}
+          // stargazers_count={this.state.items.stargazers_count}
+          // watchers_count={this.state.items.watchers_count}
         />
       </div>
     );
