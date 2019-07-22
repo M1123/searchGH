@@ -1,14 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {provider} from 'react-redux'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-
+function storage(state=[],action){
+    if (action.type === 'UPD'){
+        return[
+            ...state,
+            action.items
+        ];
+    }
+    return state;
+}
+const store = createStore(storage)
   
-ReactDOM.render(
+ReactDOM.render( 
+    <Provider store={store}>
         <App />
+    </Provider>
+        
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -1,21 +1,18 @@
-
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import logo from './logo.svg';
 import Resl from './components/resultlist';
 import Si from './components/searchinput';
 import './App.css';
 
-class App extends React.Component{
-
-  state = {
-    items: []  
-  }
+class App extends Component{
+  // state = {items: []}
 
   searchingGH = async (e) => {
     const stext = e.target.value;
     const apiurl= await fetch(`https://api.github.com/search/repositories?q=${stext}`);
     let data;
-    if (stext){
+    if (stext.length>1){
       data = await apiurl.json();
       var items=[];
       items = data.items;
@@ -25,7 +22,6 @@ class App extends React.Component{
       });
     } 
   }
-  
 
   render() {
     return (
@@ -50,4 +46,9 @@ class App extends React.Component{
 }
 
 
-export default App;
+export default connect(
+  state =>({
+    testStore: state
+  }),
+  dispatch
+) (App);

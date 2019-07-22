@@ -1,3 +1,4 @@
+
 import React from "react";
 import './style.css'
 class card extends React.Component{
@@ -7,7 +8,7 @@ class card extends React.Component{
                 <h2><a href={this.props.card.html_url} target="blank">{this.props.card.name}</a></h2>
                 <p className="counts">
                     <span>&#9733; {this.props.card.stargazers_count}</span>
-                    <span>&#128100; {this.props.card.watchers_count}</span>
+                    <span>👤 {this.props.card.watchers_count}</span>
                 </p>
             </div>
         );
