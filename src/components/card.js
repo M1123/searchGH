@@ -4,8 +4,8 @@ class card extends React.Component{
     render(){
         return(
             <div className="card">
-                <h2>card</h2>
-                
+                <p>name: {this.props.card.name}</p>
+                <p>id: {this.props.card.id}</p>
             </div>
         );
     }
