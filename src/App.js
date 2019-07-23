@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import logo from './logo.svg';
 import Resl from './components/resultlist';
 import Si from './components/searchinput';
 import './App.css';
 
 class App extends Component{
-  // state = {items: []}
+  state = {items: []}
 
   searchingGH = async (e) => {
     const stext = e.target.value;
@@ -36,9 +36,9 @@ class App extends Component{
           items={this.state.items}
           id={this.state.items.id}
           name={this.state.items.name}
-          // htmlurl={this.state.items.htmlurl}
-          // stargazers_count={this.state.items.stargazers_count}
-          // watchers_count={this.state.items.watchers_count}
+          htmlurl={this.state.items.htmlurl}
+          stargazers_count={this.state.items.stargazers_count}
+          watchers_count={this.state.items.watchers_count}
         />
       </div>
     );
@@ -46,9 +46,4 @@ class App extends Component{
 }
 
 
-export default connect(
-  state =>({
-    testStore: state
-  }),
-  dispatch
-) (App);
+export default App;

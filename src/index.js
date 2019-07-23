@@ -1,26 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux'
-import {createStore} from 'redux'
+// import {Provider} from 'react-redux'
+// import {createStore} from 'redux'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-function storage(state=[],action){
-    if (action.type === 'UPD'){
-        return[
-            ...state,
-            action.items
-        ];
-    }
-    return state;
-}
-const store = createStore(storage)
+// function storage(state=[],action){
+//     if (action.type === 'UPD'){
+//         return[
+//             ...state,
+//             action.items
+//         ];
+//     }
+//     return state;
+// }
+// const store = createStore(storage)
   
 ReactDOM.render( 
-    <Provider store={store}>
+    // <Provider store={store}>
         <App />
-    </Provider>
+    // </Provider>
         
     , document.getElementById('root'));
 
